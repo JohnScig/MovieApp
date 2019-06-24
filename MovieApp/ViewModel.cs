@@ -2,6 +2,7 @@
 using MovieConnector.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MovieApp
 {
@@ -101,6 +102,33 @@ namespace MovieApp
         public void SelectNextMovie()
         {
             /* INSERT YOUR MAGIC HERE */
+        }
+
+        #endregion
+
+        #region I/O
+
+        /// <summary>
+        /// Saves text to file.
+        /// </summary>
+        /// <param name="text">Text to save.</param>
+        /// <param name="fileName">Filename.</param>
+        /// <returns>True, if saving was successful; otherwise false.</returns>
+        private bool SaveTextToFile(string text, string fileName)
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(fileName, false))
+                {
+                    sw.WriteLine(text);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         #endregion
