@@ -30,8 +30,36 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.imgHTML = new DevExpress.Utils.ImageCollection(this.components);
+            this.lbl_name = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_tagline = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_link = new DevExpress.XtraEditors.LabelControl();
+            this.btn_previousMovie = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_nextMovie = new DevExpress.XtraEditors.SimpleButton();
+            this.cbox_favorite = new DevExpress.XtraEditors.CheckEdit();
+            this.tbox_email = new DevExpress.XtraEditors.TextEdit();
+            this.btn_newsletter = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.imgHTML)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbox_favorite.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbox_email.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // imgHTML
@@ -280,22 +308,183 @@
             this.imgHTML.Images.SetKeyName(240, "ZW.png");
             this.imgHTML.Images.SetKeyName(241, "IMDB.png");
             // 
+            // lbl_name
+            // 
+            this.lbl_name.AllowHtmlString = true;
+            this.lbl_name.Appearance.Font = new System.Drawing.Font("Tahoma", 20F);
+            this.lbl_name.Appearance.Options.UseFont = true;
+            this.lbl_name.Location = new System.Drawing.Point(50, 104);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(69, 33);
+            this.lbl_name.TabIndex = 0;
+            this.lbl_name.Text = "Name";
+            // 
+            // lbl_tagline
+            // 
+            this.lbl_tagline.AllowHtmlString = true;
+            this.lbl_tagline.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lbl_tagline.Appearance.Options.UseFont = true;
+            this.lbl_tagline.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+            this.lbl_tagline.Location = new System.Drawing.Point(50, 143);
+            this.lbl_tagline.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lbl_tagline.Name = "lbl_tagline";
+            this.lbl_tagline.Size = new System.Drawing.Size(34, 13);
+            this.lbl_tagline.TabIndex = 1;
+            this.lbl_tagline.Text = "Tagline";
+            // 
+            // lbl_link
+            // 
+            this.lbl_link.AllowHtmlString = true;
+            this.lbl_link.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_link.AppearanceHovered.Options.UseFont = true;
+            this.lbl_link.HtmlImages = this.imgHTML;
+            this.lbl_link.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_link.Location = new System.Drawing.Point(50, 282);
+            this.lbl_link.Name = "lbl_link";
+            this.lbl_link.Size = new System.Drawing.Size(15, 13);
+            this.lbl_link.TabIndex = 2;
+            this.lbl_link.Text = "link";
+            // 
+            // btn_previousMovie
+            // 
+            this.btn_previousMovie.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_previousMovie.ImageOptions.Image")));
+            this.btn_previousMovie.Location = new System.Drawing.Point(783, 369);
+            this.btn_previousMovie.Name = "btn_previousMovie";
+            this.btn_previousMovie.Size = new System.Drawing.Size(40, 23);
+            this.btn_previousMovie.TabIndex = 3;
+            this.btn_previousMovie.Click += new System.EventHandler(this.btn_previousMovie_Click);
+            // 
+            // btn_nextMovie
+            // 
+            this.btn_nextMovie.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_nextMovie.ImageOptions.Image")));
+            this.btn_nextMovie.Location = new System.Drawing.Point(843, 369);
+            this.btn_nextMovie.Name = "btn_nextMovie";
+            this.btn_nextMovie.Size = new System.Drawing.Size(43, 23);
+            this.btn_nextMovie.TabIndex = 4;
+            this.btn_nextMovie.Click += new System.EventHandler(this.btn_nextMovie_Click);
+            // 
+            // cbox_favorite
+            // 
+            this.cbox_favorite.Location = new System.Drawing.Point(44, 12);
+            this.cbox_favorite.Name = "cbox_favorite";
+            this.cbox_favorite.Properties.Caption = "checkEdit1";
+            this.cbox_favorite.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgStar1;
+            this.cbox_favorite.Size = new System.Drawing.Size(75, 22);
+            this.cbox_favorite.TabIndex = 5;
+            this.cbox_favorite.Click += new System.EventHandler(this.cbox_favorite_Click);
+            // 
+            // tbox_email
+            // 
+            this.tbox_email.Location = new System.Drawing.Point(50, 371);
+            this.tbox_email.Name = "tbox_email";
+            this.tbox_email.Properties.Mask.EditMask = "(\\w|[\\.\\-])+@(\\w|[\\-]+\\.)*(\\w|[\\-]){2,63}\\.[a-zA-Z]{2,4}";
+            this.tbox_email.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.tbox_email.Properties.Mask.PlaceHolder = 'x';
+            this.tbox_email.Size = new System.Drawing.Size(646, 20);
+            this.tbox_email.TabIndex = 6;
+            // 
+            // btn_newsletter
+            // 
+            this.btn_newsletter.Location = new System.Drawing.Point(702, 369);
+            this.btn_newsletter.Name = "btn_newsletter";
+            this.btn_newsletter.Size = new System.Drawing.Size(75, 23);
+            this.btn_newsletter.TabIndex = 7;
+            this.btn_newsletter.Text = "newsletter";
+            this.btn_newsletter.Click += new System.EventHandler(this.btn_newsletter_Click);
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Location = new System.Drawing.Point(665, 16);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.AllowZoomOnMouseWheel = DevExpress.Utils.DefaultBoolean.True;
+            this.pictureEdit1.Properties.PictureInterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.pictureEdit1.Properties.ZoomingOperationMode = DevExpress.XtraEditors.Repository.ZoomingOperationMode.MouseWheel;
+            this.pictureEdit1.Size = new System.Drawing.Size(221, 283);
+            this.pictureEdit1.TabIndex = 8;
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(665, 306);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(218, 20);
+            this.comboBoxEdit1.TabIndex = 9;
+            this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
+            // 
+            // buttonEdit1
+            // 
+            this.buttonEdit1.Location = new System.Drawing.Point(50, 345);
+            this.buttonEdit1.Name = "buttonEdit1";
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "Folder", null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "Save", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.buttonEdit1.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.buttonEdit1.Size = new System.Drawing.Size(646, 38);
+            this.buttonEdit1.TabIndex = 10;
+            this.buttonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_ButtonClick);
+            // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.Location = new System.Drawing.Point(50, 306);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Size = new System.Drawing.Size(609, 20);
+            this.lookUpEdit1.TabIndex = 11;
+            this.lookUpEdit1.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 370);
+            this.ClientSize = new System.Drawing.Size(898, 404);
+            this.Controls.Add(this.lookUpEdit1);
+            this.Controls.Add(this.buttonEdit1);
+            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.pictureEdit1);
+            this.Controls.Add(this.btn_newsletter);
+            this.Controls.Add(this.tbox_email);
+            this.Controls.Add(this.cbox_favorite);
+            this.Controls.Add(this.btn_nextMovie);
+            this.Controls.Add(this.btn_previousMovie);
+            this.Controls.Add(this.lbl_link);
+            this.Controls.Add(this.lbl_tagline);
+            this.Controls.Add(this.lbl_name);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Movie App";
             ((System.ComponentModel.ISupportInitialize)(this.imgHTML)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbox_favorite.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbox_email.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private DevExpress.Utils.ImageCollection imgHTML;
+        private DevExpress.XtraEditors.LabelControl lbl_name;
+        private DevExpress.XtraEditors.LabelControl lbl_link;
+        private DevExpress.XtraEditors.SimpleButton btn_previousMovie;
+        private DevExpress.XtraEditors.SimpleButton btn_nextMovie;
+        private DevExpress.XtraEditors.LabelControl lbl_tagline;
+        private DevExpress.XtraEditors.CheckEdit cbox_favorite;
+        private DevExpress.XtraEditors.TextEdit tbox_email;
+        private DevExpress.XtraEditors.SimpleButton btn_newsletter;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
     }
 }

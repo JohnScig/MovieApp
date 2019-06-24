@@ -2,7 +2,10 @@
 using MovieConnector.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace MovieApp
 {
@@ -59,12 +62,18 @@ namespace MovieApp
         /// <summary>
         /// Currently selected movie.
         /// </summary>
-        public MovieDetail CurrentMovie { get; private set; }
-
+        public MovieDetail CurrentMovie {get; set;}
+        //public string Title { get => CurrentMovie?.Title; }
+        //public string Tagline { get => CurrentMovie?.Tagline; }
+        //public string IMDBLink { get => $"<image=IMDB.png><href>https://www.imdb.com/title/{CurrentMovie.ImdbId}</href>"; }
+        public int Index {get; set;}
         /// <summary>
         /// Collection of all loaded movies.
         /// </summary>
         public IReadOnlyCollection<MovieListResult> Movies { get; private set; }
+
+        public HashSet<string> FavoriteMovies { get; set; }
+        public List<Genre> Genres { get; set; }
 
         #endregion
 
@@ -76,13 +85,73 @@ namespace MovieApp
         public ViewModel()
         {
             _repository = new MovieRepository();
+            FavoriteMovies = new HashSet<string>();
+            //Genres = new List<GenreList>();
         }
 
         #endregion
 
         #region Movie Loading
 
-        /* YOUR MAGIC HERE */
+        public void LoadGenres()
+        {
+            Genres = _repository.GetAvailableGenres().Data.Genres.ToList();
+        }
+
+        public void LoadTopRatedMovies()
+        {
+            var movies = _repository.GetTopRatedMovies();
+            Movies = new List<MovieListResult> (movies.Data.Results);
+            if (Movies.Any())
+            {
+                LoadCurrentMovieDetail(Movies.ElementAt(Index).Id);
+            }
+        }
+
+        internal void LoadGenreMovies(string selectedValue)
+        {
+            var movies = _repository.GetMoviesByGenre(Genres.Find(c=>c.Name==selectedValue).Id);
+            Movies = new List<MovieListResult>(movies.Data.Results);
+            if (Movies.Any())
+            {
+                LoadCurrentMovieDetail(Movies.ElementAt(Index).Id);
+            }
+        }
+
+        public void LoadNextMovie()
+        {
+            if (Index == Movies.Count-1)
+            { }
+            else
+            LoadCurrentMovieDetail(Movies.ElementAt(++Index).Id);
+        }
+
+
+
+        public void LoadPreviousMovie()
+        {
+            if (Index == 0)
+            { }
+            else
+                LoadCurrentMovieDetail(Movies.ElementAt(--Index).Id);
+        }
+
+        public void LoadCurrentMovieDetail(int movieId)
+        {
+            CurrentMovie = new MovieDetail()
+            {
+                Title = (Movies.First(c=>c.Id==movieId).Title),
+                Tagline = (Movies.First(c => c.Id == movieId).Overview),
+                ImdbId = (Movies.First(c => c.Id == movieId).Id).ToString(),
+                PosterPath = Movies.First(c => c.Id == movieId).PosterPath,
+                ReleaseDate = Movies.First(c => c.Id == movieId).ReleaseDate,
+                VoteAverage = Movies.First(c => c.Id == movieId).VoteAverage
+            };
+            //CurrentMovie = _repository.GetMovieDetail(movieId).Data;
+            //InvokePropertyChanged(new PropertyChangedEventArgs(nameof(Title)));
+            //InvokePropertyChanged(new PropertyChangedEventArgs(nameof(Tagline)));
+            //InvokePropertyChanged(new PropertyChangedEventArgs(nameof(IMDBLink)));
+        }
 
         #endregion
 
@@ -131,6 +200,26 @@ namespace MovieApp
             }
         }
 
+        internal void SaveToFile(string path)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Movies");
+            sb.AppendLine("-----------------");
+            foreach (var item in Movies)
+            {
+                sb.AppendLine($"{item.Id}: {item.Title}");
+            }
+
+            sb.AppendLine("Favorites");
+            sb.AppendLine("-----------------");
+            foreach (var item in FavoriteMovies)
+            {
+                sb.AppendLine(item);
+            }
+
+            SaveTextToFile(sb.ToString(), path+"\\movies.txt");
+        }
+
         #endregion
 
         #region Event Handling
@@ -154,5 +243,6 @@ namespace MovieApp
         }
 
         #endregion
+
     }
 }
